@@ -1,0 +1,23 @@
+<div class="post-container">
+  <% @readable_content.each do |link_page| %>
+    <div class="card-wrapper">
+      <div class="border-wrapper">
+        <%= link_to link_page["text"], get_content_path(url: link_page["link"]), class: 'post-title' %>
+        <% if link_page["short_content"].present? %>
+          <div class="post-desc">
+            <% if link_page["short_content"]["thumbnail"].present? %>
+              <div class="cover-wrapper">
+                <%= image_tag link_page["short_content"]["thumbnail"], class: 'cover' %>
+              </div>
+
+            <% end %>
+            <div class="post-short-desc">
+              <%= link_page["short_content"]["short_desc"] %>
+            </div>
+            <%= link_to "Continue Reading...", get_content_path(url: link_page["link"]), class: 'post-item' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

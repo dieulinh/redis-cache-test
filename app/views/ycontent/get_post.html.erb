@@ -1,0 +1,21 @@
+<div class="post-container">
+  <button type="button" id="back_button" >
+    <span class="button-text sc-ion-back-button-ios">Back</span>
+  </button>
+  <div class="post-view">
+    <% if @post["thumbnail"].present? %>
+      <%= image_tag @post["thumbnail"], class: 'cover' %>
+    <% end %>
+
+    <h1>
+      <%= @post["title"] %>
+    </h1>
+    <div class="post-desc">
+
+      <%=raw @post["content"] %>
+    </div>
+  </div>
+
+</div>
+
+

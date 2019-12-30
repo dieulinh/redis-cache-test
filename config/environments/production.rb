@@ -25,7 +25,7 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-
+  config.cache_store = :redis_cache_store, { url: ENV["REDISTOGO_URL"] }
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
@@ -61,7 +61,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "iwa-test_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "rails-web-template_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
 
